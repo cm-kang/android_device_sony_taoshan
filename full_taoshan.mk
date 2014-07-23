@@ -21,6 +21,13 @@ $(call inherit-product, device/sony/taoshan/taoshan.mk)
 # Inherit common Sony resources
 $(call inherit-product, device/sony/common/resources.mk)
 
+# GAPPs
+ifeq ($(USES_GAPPS),true)
+$(call inherit-product-if-exists, vendor/google/google.mk)
+else
+# do.. nothing?
+endif
+
 # Device identifier
 PRODUCT_DEVICE := taoshan
 PRODUCT_NAME := full_taoshan
